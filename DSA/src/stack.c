@@ -25,6 +25,10 @@ int push(StackNode **topOfStack, StackData data)
 {
 	StackNode *top;
 
+	if(topOfStack == NULL)
+	{
+		return STACK_FAILURE;
+	}
 	top = (StackNode *) malloc(sizeof(StackNode));
 	memset(top, 0, sizeof(StackNode));
 	top->data = data;
@@ -50,8 +54,7 @@ StackData pop(StackNode **topOfStack)
 	StackNode *top;
 	StackData data;
 
-	top = *topOfStack;
-	if(top == NULL)
+	if( topOfStack == NULL || *topOfStack == NULL)
 	{
 		return NULL;
 	}
